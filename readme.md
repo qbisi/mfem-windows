@@ -9,7 +9,7 @@
 
 1. msys2 安装 [MSYS2](https://www.msys2.org/)
 2. msys2 与ide 和 terminal 集成 [Terminals - MSYS2](https://www.msys2.org/docs/terminals/)   在windows terminal/vscode intergated terminal  打开msys2 bash shell 
-3. 在 https://packages.msys2.org/ 搜索 wget, mfem 和 msmpi 软件包，安装 ucrt64 的版本
+3. 在 https://packages.msys2.org/ 搜索 wget, mfem, pkgconf, base-devel 和 msmpi 软件包，安装 ucrt64 的版本
 4. 在 https://github.com/qbisi/mfem-windows/releases 下载预编译的软件包`wget https://github.com/qbisi/mfem-windows/releases/download/0.1/mingw-w64-ucrt-x86_64-mfem-4.7-1-any.pkg.tar.zst` `wget https://github.com/qbisi/mfem-windows/releases/download/0.1/mingw-w64-ucrt-x86_64-mumps-5.7.3-3-any.pkg.tar.zst`
 5. `pacman -U *.tar.zst` 安装软件包
 
@@ -31,7 +31,11 @@ $(pkgconf --static --libs --cflags netcdf libcurl hdf5 snappy liblz4 liblzma  kl
 
 ```bash
 #add "C:\Program Files\Microsoft MPI\Bin\" to PATH
-export PATH=/c/Program\ Files/Microsoft\ MPI/Bin:$PATH
+export PATH=/c/Program\ Files/Microsoft\ MPI/Bin:/c/Users/qbisi/AppData/Local/Programs/Microsoft\ VS\ Code/bin:$PATH
+# or
+echo "export PATH=/c/Program\ Files/Microsoft\ MPI/Bin:/c/Users/qbisi/AppData/Local/Programs/Microsoft\ VS\ Code/bin:\$PATH" >> ~/.bashrc
+
+source ~/.bashrc
 
 mpiexec -np 4 ./test.exe
 ```
