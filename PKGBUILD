@@ -1,6 +1,3 @@
-# Maintainer: Luis Martinez <luis.martinez@disroot.org>
-# Contributor: Rafał Brzegowy <rafal.brzegowy@yahoo.com>
-
 _realname=raja
 pkgbase=raja-w64-${_realname}
 pkgname=("${MINGW_PACKAGE_PREFIX}-${_realname}")
